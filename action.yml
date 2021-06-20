@@ -1,0 +1,24 @@
+name: 'Turn GitHub release into an apt repo'
+description: 'Create an apt repo for debs on an existing release.'
+
+runs:
+  using: docker
+  image: Dockerfile
+
+inputs:
+  SIGNING_PRIVKEY:
+    description: 'path to gpg private key in workspace. please generate a new one'
+    required: true
+  SIGNING_KEY_ID:
+    description: 'ID of signing key.'
+    required: true
+  GITHUB_TOKEN:
+    description: 'GitHub API token'
+    required: true
+  RELEASE_TAG:
+    description: 'Tag of release to source .deb files from'
+    required: true
+
+branding:
+  icon: package
+  color: gray-dark
